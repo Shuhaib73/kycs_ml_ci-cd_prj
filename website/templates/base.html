@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="shuhaib"> 
+
+        <title>{% block title %}Home{% endblock %}</title>
+
+        {% block styles %}
+        <link rel="stylesheet" href="{{url_for('static', filename='base_styles.css')}}">
+        {% endblock %}
+
+        
+        <link rel="icon" href="static/logo.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <header>
+            <img src="static/logo.png" alt="logo loading" class="logo_cls">
+            <h2 class="logo">kycs.ai</h2>
+            {% block navbar %}
+            <nav class="navigation_bar">
+                <a href="{{url_for('home')}}">Home</a>
+                <a href="{{url_for('about')}}">About</a>
+                <a href="{{ url_for('github') }}" target="_blank">Git Hub</a>
+                <a href="{{url_for('contact')}}">Contact</a>
+                {% block button %}
+                    <!-- <button class="btnlogin-popup">Login</button> -->
+                {% endblock %}
+
+            </nav>
+            {% endblock %}
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+    </body>
+</html>

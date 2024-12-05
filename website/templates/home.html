@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='home_styles.css')}}">
+{% endblock %}
+
+{% block button %}
+<form action="{{ url_for('login') }}" method="get" style="display: inline;">
+    <button type="submit" class="btnlogin-popup">Login</button>
+</form>
+{% endblock %}
+
+{% block content %}
+    <section class="home">
+        <div class="content_container">
+            <h2 data-text="Artificial.Intelligence -">Artificial.Intelligence -</h2>
+            <p class="parg_1">for Business Applications.</p>
+            <p class="parg_2">Uses machine learning algorithms to analyze your company's status and create a comprehensive branding strategy in minutes.</p>
+            <a href="{{url_for('signup')}}">Get Started</a>
+        </div>
+    </section>  
+{% endblock %}

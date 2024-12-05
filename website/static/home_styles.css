@@ -1,0 +1,118 @@
+
+
+.home {
+    max-width: 80%;
+    /* color: #FABF68; */
+    display: flex;
+}
+
+.home .content_container {
+    margin-top: 30%;
+    padding-left: 5%;
+    text-align: left;
+    text-wrap: wrap;
+}
+
+.content_container h2 {
+    position: relative;
+    color: transparent;
+    font-size: 2em;
+    /* letter-spacing: .03em; */
+
+    -webkit-text-stroke: 0.05vw transparent;
+    /* text-transform: uppercase; */
+}
+
+.content_container h2::before {
+    content: attr(data-text);    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;           /* Main - */
+    height: 100%;
+    color: #FFB74C;
+    -webkit-text-stroke: 0vw transparent;
+    border-right: 2px solid #FFB74C;
+    overflow: hidden;
+    
+    animation: anime-text 10s linear infinite;
+} 
+
+/* Effect */
+@keyframes anime-text {
+    0%,5%,90% {
+        width: 0;
+    }
+    50% {
+        width: 48%;
+    }
+}
+
+/*  */
+
+.content_container p {
+    margin: 10px 0 40px;
+    color: #dbc39f;
+}
+
+
+
+.content_container a {
+    color: #FABC87;
+    border: 2px solid white;
+    font-weight: 500;
+    padding: 10px 40px;
+    text-decoration: none;
+    border-radius: 40px;
+
+    
+    animation-name: anime1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.content_container a:hover {
+    background-color: #FABC87;
+    box-shadow: 0 0 10px #FABC87, 
+    0 0 30px #FABC87
+    0 0 70px #FABC87
+    0 0 100px #FABC87;
+    color: rgb(40, 38, 38);
+    font-weight: 600;
+}
+
+@keyframes anime1 {
+    from {
+        border-color: white;
+        border-width: 2px;
+    }
+    to {
+        border-color: rgb(151, 151, 151);
+        border-width: 1.9px;
+    }
+}   
+
+
+.btnlogin-popup {
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #FFB74C;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #FABC87;
+    font-weight: 500;
+    text-align: center;
+} 
+
+.btnlogin-popup {
+    margin-left: 30px;
+}
+
+.btnlogin-popup:hover {
+    background-color: #F9CE90;
+    color: #162938;
+}

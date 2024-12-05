@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    SignUp Page
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='signup_styles.css')}}">
+
+    <script src="https://kit.fontawesome.com/55d7ca6d4f.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="error-messages">
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+                <div class="error-message">
+                    {{ message }}
+                </div>
+            {% elif category == 'success' %}
+                <div class="success_message">
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="wrapper-signup">
+        <form action="{{url_for('signup')}}" method="POST">
+            
+            <div class="form_container">
+                <h2>Signup</h2>
+                <div class="input-box">
+                    <label class="for_labels" for="name"></label>
+                    <input type="text" class="input-items" id="name" name="name" placeholder="Username" required>
+                    <span class="icon"><i class="fa-solid fa-user fa-fade"></i></span>
+                </div>
+                <div class="input-box">
+                    <label class="for_labels" for="email"></label>
+                    <input type="email" class="input-items" id="email" name="email" placeholder="Email" required>
+                    <span class="icon"><i class="fa-solid fa-envelope fa-fade"></i></span>
+                </div>
+                <div class="input-box">
+                    <label class="for_labels" for="password"></label>
+                    <input type="password" id="password" class="input-items" name="password" placeholder="Create password" required>
+                    <span class="icon"><i class="fa-solid fa-lock fa-fade"></i></span>
+                </div>
+                <div class="input-box">
+                    <label class="for_labels" for="psw"></label>
+                    <input type="password" id="psw" class="input-items" name="psw" placeholder="Confirm password" required>
+                    <span class="icon"><i class="fa-solid fa-lock fa-fade"></i></span>
+                </div>
+
+                <button class="register_btn" type="submit">Sign Up</button>
+
+                <div class="register">
+                    <p>Already have an account? <a href="{{url_for('login')}}" class="Login">Sign In</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+

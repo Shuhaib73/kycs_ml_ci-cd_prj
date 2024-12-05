@@ -1,0 +1,64 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    About Page
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='about_styles.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<nav class="navigation_bar">
+    <a href="{{url_for('home')}}">Home</a>
+    <a href="{{ url_for('github') }}" target="_blank">Git Hub</a>
+    <a href="{{url_for('contact')}}">Contact</a>
+    {% block button %}
+    <form action="{{ url_for('home') }}" method="get" style="display: inline;">
+        <button type="submit" class="btnlogout-popup">Logout</button>
+    </form>
+    {% endblock %}
+
+</nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container_prj">
+        <h2>Predicting a Startup's Acquisition Status</h2>
+
+        <h4>Summary</h4>
+        <p>The data contains industry trends, investment insights and individual company information. Since the data was acquired on a trial basis, it only contains information about companies. After training the model, we predict whether startups still operating, IPO, acquired, or closed.</p>
+
+        <h4>Objective</h4>
+        <p>Company's Status Prediction: Binary And Multiclass Classification Approach</p>
+        <p>The objective of the project is to predict whether a startup which is currently Operating, IPO, Acquired, or closed.This problem will be solved through a Supervised Machine Learning approach by training a model based on the history of startups which were either acquired or closed.</p>
+
+        <h4>Features</h4>
+        <p>Dataset provides Company name, permalink, category, funding dates, funding rounds, funding amount, city, state, funding dates, last milestone date, etc.</p>
+
+        <h4>Dataset</h4>
+        <a href="https://drive.google.com/file/d/1tWYkHYHm2HoiCajZ49Cs1K7sklWTdAbV/view?usp=sharing" target="_blank">Link to raw data(Huge JSON and Excel file)</a>
+
+        <h4 style="padding-top: 15px;">Machine Learning Model Development:</h4>
+        
+        <ul>
+            <li><strong>Data Collection:</strong> Gathered detailed information about startups from Crunchbase.com. a comprehensive database of companies and startup ecosystem. Utilizing Crunchbase's extensive dataset, we collected company profiles, funding rounds, investment insights, industry trends, and other relevant information. This included extracting data points such as company names, industry categories, funding amounts, funding dates, geographic locations, and other key metrics. The data from Crunchbase provided valuable insights into the startup landscape, allowing us to build a robust predictive model for determining a startup's acquisition status.</li>
+            <li><strong>Data Cleaning:</strong> Performed data cleaning tasks such as handling missing values, removing duplicates, and dealing with outliers to ensure data quality.</li>
+            <li><strong>Exploratory Data Analysis (EDA):</strong> Conducted EDA to gain insights into the dataset, identify patterns, and explore relationships between variables.</li>
+            <li><strong>Data Preprocessing:</strong> Prepared the data for modeling by scaling numerical features, encoding categorical variables, and splitting the dataset into training and testing sets.</li>
+            <li><strong>Feature Engineering:</strong> Created new features or transformed existing features to better represent the underlying data and improve model performance.</li>
+            <li><strong>Handling Imbalanced Dataset:</strong> Addressed imbalanced class distribution by applying techniques such as SMOTE (Synthetic Minority Over-sampling Technique) and random oversampling.</li>
+            <li><strong>Mutual Information Scores for Feature Importance Analysis:</strong> Calculated mutual information scores to analyze the importance of features in predicting the target variable.</li>
+            <li><strong>Feature Extraction:</strong> Extracted relevant features from the dataset to improve model performance and reduce dimensionality.</li>
+            <li><strong>Model Selection:</strong> Explored different machine learning algorithms suitable for the task such as logistic regression, decision trees, random forests, XGB, KNN and Gradient Boosting.</li>
+            <li><strong>Model Training:</strong> Trained multiple models using the training data and evaluated their performance using appropriate metrics.</li>
+            <li><strong>Hyperparameter Tuning:</strong> Fine-tuned the hyperparameters of the best-performing models using techniques like grid search or randomized search.</li>
+            <li><strong>Model Evaluation:</strong> Evaluated the final model on the testing data to assess its generalization performance and identify any potential issues like overfitting or underfitting.</li>
+            <li><strong>Model Deployment:</strong> Deployed the trained model into production environment for real-time predictions.</li>
+            <li><strong></strong></li>
+        </ul>
+
+    </div>
+{% endblock %}

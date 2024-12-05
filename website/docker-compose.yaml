@@ -1,0 +1,35 @@
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env 
+    environment:
+      - FLASK_APP=app.py
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DB=${MYSQL_DB}
+    depends_on:
+      - mysql
+    networks:
+      - website_app_network
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DB}
+    ports:
+      - "3306:3306"
+
+    networks:
+      - website_app_network
+
+
+networks:
+  website_app_network:
+    driver: bridge

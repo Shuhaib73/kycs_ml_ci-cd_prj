@@ -1,0 +1,136 @@
+
+.wrapper-login {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 8%;
+    height:100vh;
+    margin-left: 400px;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    width: 450px;
+    height: 400px;
+    background: transparent;
+    border: 2px solid #FABF68;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgb(0, 0, 0, .5);
+}
+
+
+.wrapper-login h2 {
+    font-size: 1.7em;
+    color: #FABF68;
+    text-align: center;
+    padding: 27px 0;
+}
+
+.input-box .for_labels {
+    display: flex;
+    flex-direction: column; /* Display labels and inputs as columns */
+}
+
+.input-items {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #FFB74C;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 300px;
+    color: wheat
+}
+
+.input-items:focus {
+    margin-top: 5px;
+    border-color: #82e0e8f6; 
+    background: transparent;
+}
+
+.update_btn {
+    width: 70%;
+    height: 45px;
+    background: #FFB74C;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 400;
+}
+
+.icon {
+    color: #fec773;
+}
+
+
+/* Alert */
+
+.error-message {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 98px;
+
+    background-color: rgb(255, 0, 0, 0.3);
+    color: white;
+    font-weight: 700;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 3px 3px;
+    height: 40px;
+
+    animation: fadeout 8s forwards;
+}
+
+.success_message {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    color: white;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 98px;
+
+    height: 40px;
+
+    background-color: rgba(20, 255, 118, 0.861);
+    font-weight: 700;
+    border: 1px solid rgb(37, 255, 106);
+    border-radius: 10px;
+    padding: 3px 3px;
+
+    animation: fadeout 6s forwards;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+    
+}
+

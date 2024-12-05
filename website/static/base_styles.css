@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: url('./bg1.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #FFA828;
+    user-select: none;
+    margin-right: auto;
+    padding-left: 8px;
+}
+
+.logo_cls {
+    background-color: transparent;
+    height: 38px;
+    width: 50px;
+    border-radius: 14px;
+    outline: none;
+}
+
+.navigation_bar a {
+    position: relative;
+    font-size: 1.1em;
+    color: #FABC87;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation_bar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: #FFA31B;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transform-origin: right;
+}
+
+.navigation_bar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* 
+.navigation_bar .btnlogin-popup {
+    width: 130px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation_bar .btnlogin-popup:hover {
+    background-color: #fff;
+    color: #162938;
+} */

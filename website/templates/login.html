@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='login_styles.css')}}">
+
+    <script src="https://kit.fontawesome.com/55d7ca6d4f.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="error-messages">
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+                <div class="error-message">
+                    {{ message }}
+                </div>
+            {% elif category == 'success' %}
+                <div class="success_message">
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="wrapper-login">
+        <form action="{{url_for('login')}}" method="post">
+            
+            <div class="form_container">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <label class="for_labels" for="email"></label>
+                    <input type="email" class="input-items" id="email" name="email" placeholder="Email" required>
+                    <span class="icon"><i class="fa-solid fa-envelope fa-fade"></i></span>
+                </div>
+                <div class="input-box">
+                    <label class="for_labels" for="password"></label>
+                    <input type="password" id="password" class="input-items" name="password" placeholder="Password" required>
+                    <span class="icon"><i class="fa-solid fa-lock fa-fade"></i></span>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="{{url_for('reset_password')}}">Forget Password?</a>
+                </div>
+
+                <button class="login_btn" type="submit">Login</button>
+
+                <div class="login-register">
+                    <p>Don't have an account? <a href="{{url_for('signup')}}" class="register_link">Register</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+

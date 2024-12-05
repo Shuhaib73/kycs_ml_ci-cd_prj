@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    Reset Password Page
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='reset_psw_styles.css')}}">
+
+    <script src="https://kit.fontawesome.com/55d7ca6d4f.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="error-messages">
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+                <div class="error-message">
+                    {{ message }}
+                </div>
+            {% elif category == 'success' %}
+                <div class="success_message">
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="wrapper-login">
+        <form action="{{url_for('reset_password')}}" method="post">
+            
+            <div class="form_container">
+                <h2>Reset Password</h2>
+                <div class="input-box">
+                    <label class="for_labels" for="email"></label>
+                    <input type="email" class="input-items" id="email" name="email" placeholder="Email" required>
+                    <span class="icon"><i class="fa-solid fa-envelope fa-fade"></i></span>
+                </div>
+                <div class="input-box">
+                    <label class="for_labels" for="password"></label>
+                    <input type="password" id="password" class="input-items" name="password" placeholder="Password" required>
+                    <span class="icon"><i class="fa-solid fa-lock fa-fade"></i></span>
+                </div>
+                <div class="input-box">
+                    <label class="for_labels" for="psw"></label>
+                    <input type="password" id="password" class="input-items" name="psw" placeholder="Confirm password" required>
+                    <span class="icon"><i class="fa-solid fa-lock fa-fade"></i></span>
+                </div>
+
+
+                <button class="update_btn" type="submit">Update Password</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

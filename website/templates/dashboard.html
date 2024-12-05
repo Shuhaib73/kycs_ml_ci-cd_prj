@@ -1,0 +1,117 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_styles.css')}}">
+
+    <script src="https://kit.fontawesome.com/55d7ca6d4f.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+
+{% block button %}
+<form action="{{ url_for('home') }}" method="get" style="display: inline;">
+    <button type="submit" class="btnlogout-popup">Logout</button>
+</form>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h2>Company Details</h2>
+    
+        <form action="{{url_for('dashboard')}}" method="POST" class="form-inline">
+            <div class="input-box">
+                <label class="for_labels" for="category"></label>
+                <input type="text" class="input-items" id="category" name="category" placeholder="Category">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="country"></label>
+                <input type="text" id="country" class="input-items" name="country" placeholder="Country Code">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="founded_at"></label>
+                <input type="number" id="founded_at" class="input-items" name="founded_at" placeholder="Founded Year" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="active_years"></label>
+                <input type="number" id="active_years" class="input-items" name="active_years" placeholder="Active Years" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="first_funding_at"></label>
+                <input type="number" id="first_funding_at" class="input-items" name="first_funding_at" placeholder="First Funding Year" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="first_milestone_at"></label>
+                <input type="number" id="first_milestone_at" class="input-items" name="first_milestone_at" placeholder="First Milestone Year" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="funding_rounds"></label>
+                <input type="number" id="funding_rounds" class="input-items" name="funding_rounds" placeholder="Funding Rounds" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="milestones"></label>
+                <input type="number" id="milestones" class="input-items" name="milestones" placeholder="Milestone" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="relationships"></label>
+                <input type="number" id="relationships" class="input-items" name="relationships" placeholder="Relationships" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="funding_total_usd"></label>
+                <input type="number" id="funding_total_usd" class="input-items" name="funding_total_usd" placeholder="Funding Total USD" step="any">
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="lat"></label>
+                <input type="number" id="lat" class="input-items" name="lat" placeholder="Latitude" step="any" >
+            </div>
+            <div class="input-box">
+                <label class="for_labels" for="lng"></label>
+                <input type="number" id="lng" class="input-items" name="lng" placeholder="Longitude" step="any">
+            </div><hr/><br/>
+
+            <div class="input-box">
+                <label class="for_labels" for="flash_fill"></label>
+                <input type="text" id="flash_fill_id" class="input-items" name="flash_fill" placeholder="Flash Fill" step="any" style="width: 400px;">
+            </div><hr/><br/>
+
+            <p class="ml_p">Please Select the ML Model:</p>
+            <div class="radio-button-group">
+
+                <input type="radio" id="option1" name="option" value="binary_classification" required>
+                <label for="option1">Binary ML Model</label>
+
+                <input type="radio" id="option2" name="option" value="multiclass_classification">
+                <label for="option2">Multiclass ML Model</label>
+            </div>
+
+            <button type="submit" class="predict_btn">Predict</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="error-messages">
+                {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="error-message">
+                        {{ message }}
+                    </div>
+                {% elif category == 'success' %}
+                    <div class="success_message">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+{% endblock %}
+
